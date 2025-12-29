@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panchshil Hardware & Interior</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav>
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='image/PHS LOGO.jpg') }}" alt="Logo" style="height:80px;">
+      </a>
+
+      <div>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="{{ url_for('login') }}">Login</a>
+
+        <a id="getInTouchBtn" class="nav-btn">Get in Touch</a>
+
+        <span class="cart-icon" onclick="openCart()">
+          🛒 <span id="cart-count">0</span>
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= HOME SLIDER ================= -->
+  <div class="home-slider" id="home">
+
+    <div class="home-slide active" style="background-image:url('/static/image/home1.jpg')">
+      <div class="home-content">
+        <h1>Complete Hardware & Interior Solutions</h1>
+        <p>Premium Quality • Trusted Service</p>
+        <button class="hero-btn" id="getQuoteBtn">Get a Free Quote</button>
+      </div>
+    </div>
+
+    <div class="home-slide" style="background-image:url('/static/image/home2.jpg')">
+      <div class="home-content">
+        <h1>Modern Interior Designs</h1>
+        <p>Kitchen • Wardrobe • Furniture</p>
+      </div>
+    </div>
+
+    <div class="home-slide" style="background-image:url('/static/image/home3.jpg')">
+      <div class="home-content">
+        <h1>Quality Hardware Products</h1>
+        <p>Handles • Railings • Accessories</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= PRODUCTS ================= -->
+  <section id="products">
+    <h2>Our Products</h2><br>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="/static/image/product1.jpg">
+        <h3>Door Handles</h3>
+        <p>₹1,200</p>
+        <button onclick="addToCart('Door Handles', 1200)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Door Handles', 1200)">Buy Now</button>
+
+      </div>
+
+      <div class="product-card">
+        <img src="/static/image/product2.jpg">
+        <h3>Railing</h3>
+        <p>₹2,500</p>
+        <button onclick="addToCart('Railing',2500)">Add to Cart</button>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="/static/image/product3.jpg">
+        <h3>Kitchen Accessories</h3>
+        <p>₹3,000</p>
+        <button onclick="addToCart('Kitchen Accessories',3000)">Add to Cart</button>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SERVICES SLIDER ================= -->
+  <section id="services">
+    <h2>Our Services</h2><br>
+
+    <div class="slider">
+      <div class="slider-track">
+        <div class="slide"><img src="/static/image/product1.jpg">
+          <h3>Door Handles</h3>
+        </div>
+        <div class="slide"><img src="/static/image/product2.jpg">
+          <h3>Railing</h3>
+        </div>
+        <div class="slide"><img src="/static/image/product3.jpg">
+          <h3>Kitchen</h3>
+        </div>
+        <div class="slide"><img src="/static/image/product4.jpg">
+          <h3>Wardrobe</h3>
+        </div>
+
+        <!-- duplicate for smooth scroll -->
+        <div class="slide"><img src="/static/image/product1.jpg">
+          <h3>Door Handles</h3>
+        </div>
+        <div class="slide"><img src="/static/image/product2.jpg">
+          <h3>Railing</h3>
+        </div>
+        <div class="slide"><img src="/static/image/product3.jpg">
+          <h3>Kitchen</h3>
+        </div>
+        <div class="slide"><img src="/static/image/product4.jpg">
+          <h3>Wardrobe</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section id="reviews">
+    <h2>What Our Clients Say</h2><br>
+
+    <div class="single-review-card">
+
+      <div class="review active">
+        <img src="/static/image/client1.jpg">
+        <p>Excellent quality hardware and very professional service.</p>
+        <h4>Ramesh Kumar</h4>
+        ⭐⭐⭐⭐
+      </div>
+
+      <div class="review">
+        <img src="/static/image/client2.jpg">
+        <p>Best place for interior accessories. Quality products.</p>
+        <h4>Sneha Reddy</h4>
+        ⭐⭐⭐
+      </div>
+
+      <div class="review">
+        <img src="/static/image/client3.jpg">
+        <p>Very happy with the wardrobe fittings.</p>
+        <h4>Arjun Mehta</h4>
+        ⭐⭐⭐⭐
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-ligna">
+    <div class="footer-container">
+
+      <div class="footer-about">
+        <img src="/static/image/PHS LOGO.jpg" class="footer-logo">
+        <p>Premium hardware & interior solutions for modern homes.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>IMPORTANT LINKS</h4>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a id="getInTouchBtn">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>CONTACT</h4>
+        <p>📞 +91 8390909396</p>
+        <p>✉ infohyb@panchshilhardware.com</p>
+        <p>Hyderabad, Telangana</p>
+      </div>
+
+    </div>
+
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2025 Panchshil Hardware & Interior</p>
+  </footer>
+
+  <!-- ================= CONTACT MODAL ================= -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Get a Quote</h2>
+
+      <form action="{{ url_for('contact') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Mobile</label>
+        <input type="tel" name="mobile" required>
+
+        <label>Message</label>
+        <textarea name="message" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= CART MODAL ================= -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">&times;</span>
+      <h2>Your Cart</h2>
+      <ul id="cartItems"></ul>
+      <h3>Total: ₹<span id="cartTotal">0</span></h3>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    /* Home Slider */
+    let slides = document.querySelectorAll('.home-slide');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 4000);
+
+    /* Reviews */
+    let reviews = document.querySelectorAll('.review');
+    let r = 0;
+    setInterval(() => {
+      reviews[r].classList.remove('active');
+      r = (r + 1) % reviews.length;
+      reviews[r].classList.add('active');
+    }, 4000);
+
+    /* Modal */
+    const modal = document.getElementById('contactModal');
+    document.getElementById('getQuoteBtn').onclick = () => modal.style.display = 'block';
+    document.getElementById('getInTouchBtn').onclick = () => modal.style.display = 'block';
+    document.querySelector('.close').onclick = () => modal.style.display = 'none';
+    </script>
+
+    /* Cart */
+   <script>
+  let cart = [];
+  let total = 0;
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    total += price;
+    document.getElementById('cart-count').innerText = cart.length;
+    alert(name + " added to cart 🛒");
+  }
+
+  function buyNow(name, price) {
+    alert(
+      "✅ Order Confirmed!\n\n" +
+      "Product: " + name + "\n" +
+      "Price: ₹" + price + "\n\n" +
+      "We will contact you shortly."
+    );
+  }
+</script>
+<script>
+  const cartModal = document.getElementById('cartModal');
+
+  function openCart() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    cartItems.innerHTML = '';
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.innerText = item.name + " - ₹" + item.price;
+      cartItems.appendChild(li);
+    });
+    cartTotal.innerText = total;
+    cartModal.style.display = 'block';
+  }
+
+  function closeCart() {
+    cartModal.style.display = 'none';
+  }
+</script>
+</body>
+
+</html>
